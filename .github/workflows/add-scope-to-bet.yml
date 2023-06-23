@@ -34,9 +34,10 @@ jobs:
             const repo = repoFull.split('/')[1];
             const issueNumber = Number(match[3]);
             const repoUrl = `https://github.com/${repoFull}`;
+            const orgOrUser = context.payload.organization ? 'organization' : 'user';
             const query = `
                   query($owner: String!, $repo: String!, $issue: Int!) { 
-                    user(login: $owner) {
+                    ${orgOrUser}(login: $owner) {
                         repository(name: $repo) {
                             issue(number: $issue) {
                                 id
