@@ -70,6 +70,7 @@ jobs:
                 issueNodeId: id,
                 trackedTasks : trackedIssues.nodes.map(issue => issue.number)
               };
+              console.log(`result`, result);
             } catch (error) {
               console.log(`Failed query for issue #${issueNumber}`, error);
             }
