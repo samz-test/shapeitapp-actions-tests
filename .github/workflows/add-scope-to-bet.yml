@@ -60,7 +60,7 @@ jobs:
             }
             try {
               const data = await github.graphql(query, variables)
-              const {body, id, trackedIssues} = data.user.repository.issue
+              const {body, id, trackedIssues} = data[orgOrUser].repository.issue
               result = {
                 issueNumber,
                 owner,
