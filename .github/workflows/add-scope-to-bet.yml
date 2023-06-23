@@ -12,10 +12,6 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: View context attributes
-        uses: actions/github-script@v6
-        with:
-          script: console.log(context)
       - name: Parse Issue Description
         id: parse
         uses: actions/github-script@v6
@@ -72,7 +68,6 @@ jobs:
                 issueNodeId: id,
                 trackedTasks : trackedIssues.nodes.map(issue => issue.number)
               };
-              console.log(`result`, result);
             } catch (error) {
               console.log(`Failed query for issue #${issueNumber}`, error);
             }
