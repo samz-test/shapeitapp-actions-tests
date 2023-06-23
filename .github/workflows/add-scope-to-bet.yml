@@ -9,6 +9,8 @@ on:
 jobs:
   add_related_issues:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - name: View context attributes
         uses: actions/github-script@v6
